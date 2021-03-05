@@ -17,7 +17,7 @@ const io = socketIO(server);
 let users = [];
 let currentPlayer = null;
 let timeout = null;
-const words = ['Beignet', 'Diamant', 'Poulpe', 'Cheval', 'Merci']
+const words = ['Beignet', 'Diamant', 'Poulpe', 'Cheval', 'Coeur'];
 
 io.on('connection', (socket) => {
 	socket.on('username', (username) => {
@@ -39,6 +39,10 @@ io.on('connection', (socket) => {
 			return user !== socket
 		});
 		sendUsers();
+
+		if(users.length === 0){
+			timeout = clearTimeout(timeout);
+		}
 	});
 
 	socket.on('line', (data) => {
