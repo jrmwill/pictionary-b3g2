@@ -6,6 +6,9 @@
 		canvas{
 			border: 1px solid;
 		}
+		li.is-active{
+			font-weight: bold;
+		}
 	</style>
 </head>
 <body>
@@ -21,13 +24,21 @@
 
 		socket.emit('username', username);
 
+		let canDraw = false;
+
 		const usersList = document.querySelector('.users');
 		socket.on('users', (data) => {
 			usersList.innerHTML = "";
 			data.forEach((user) => {
 				let li = document.createElement('li');
 				li.innerHTML = user.username;
+				if(user.isActive){
+					li.classList.add('is-active');
+				}
 				usersList.appendChild(li);
+				if(user.username === username){
+					canDraw = user.isActive;
+				}
 			})
 		})
 
@@ -36,6 +47,7 @@
 		}
 
 		function mouseDragged(){
+			if(!canDraw) return;
 			line(mouseX, mouseY, pmouseX, pmouseY);
 
 			socket.emit('line', {
