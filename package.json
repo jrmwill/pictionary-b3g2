@@ -1,0 +1,19 @@
+{
+  "name": "pictionary-b3g2",
+  "version": "0.0.1",
+  "description": "Exercice for school",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jrmwill/pictionary-b3g2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jrmwill/pictionary-b3g2/issues"
+  },
+  "homepage": "https://github.com/jrmwill/pictionary-b3g2#readme"
+}
