@@ -14,11 +14,11 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
 	<script>
 		function setup() {
-		  createCanvas(400, 400);
+		  createCanvas(500, 500);
 		}
 
-		function draw() {
-		  background(220);
+		function mouseDragged(){
+			line(mouseX, mouseY, pmouseX, pmouseY);
 		}
 	</script>
 </body>
